@@ -9,6 +9,12 @@ export function createGallery(images) {
   gallery.innerHTML = markup;
   lightbox.refresh();
 }
+export function loadMoreGallery(images) {
+  const gallery = document.querySelector('.gallery');
+  const markup = images.map(image => createImage(image)).join('');
+  gallery.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
+}
 export function clearGallery() {
   const gallery = document.querySelector('.gallery');
   gallery.innerHTML = '';
@@ -31,4 +37,13 @@ function createImage(image) {
     <p class="image-stats">Comments: ${image.comments}</p>
   </div>
 </div></li>`;
+}
+
+export function showLoadMoreBtn() {
+  const loadbtn = document.querySelector('.loadmore-js');
+  loadbtn.classList.add('loadmore');
+}
+export function hideLoadMoreBtn() {
+  const loadbtn = document.querySelector('.loadmore-js');
+  loadbtn.classList.remove('loadmore');
 }

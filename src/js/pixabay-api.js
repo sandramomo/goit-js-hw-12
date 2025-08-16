@@ -11,12 +11,13 @@ const axios = Axios.create({
   },
 });
 
-export function getImagesByQuery(query) {
-  return axios
-    .get('', {
-      params: {
-        q: query,
-      },
-    })
-    .then(res => res.data);
+export async function getImagesByQuery(query, page) {
+  const result = await axios.get('', {
+    params: {
+      per_page: 15,
+      q: query,
+      page: page,
+    },
+  });
+  return result.data;
 }

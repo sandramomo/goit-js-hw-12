@@ -1,0 +1,108 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* Common styles */
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./container.css');
+@import url('./animations.css');
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff0f6;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.form input[type="text"] {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: 2px solid #ffb3c6;
+  border-radius: 12px;
+  outline: none;
+  background-color: #ffffff;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.form input[type="text"]::placeholder {
+  color: #ff9eb5;
+}
+
+.form input[type="text"]:focus {
+  border-color: #ff80a0;
+  box-shadow: 0px 0px 8px #ffb3c6;
+}
+
+.form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff80a0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 150ms ease;
+}
+
+.form button:hover {
+  background-color: #ff4d79;
+  transform: scale(1.05);
+}
+
+.form button:active {
+  transform: scale(0.97);
+}
+.gallery {
+  justify-content: center;
+  display:flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.image-box {
+  background-color: #fff0f6;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 240px; 
+  text-align: center;
+  padding: 10px;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #ffb3c6;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.image-box img:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 8px #ffb3c6;
+}
+
+.image-description {
+  margin-top: 10px;
+  background-color: #ffe0ec;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.image-stats {
+  margin: 4px 0px;
+  font-size: 14px;
+  color: #ff4d79;
+  font-weight: 500;
+}
+.invisible {
+  display:none;
+}

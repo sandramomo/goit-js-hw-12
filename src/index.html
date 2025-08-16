@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallerize</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <form class="form">
+        <label>
+          <input
+            type="text"
+            name="searchtext"
+            placeholder="Search images..."
+            required
+          />
+        </label>
+        <button type="submit">Search</button>
+      </form>
+      <div><span class="loader invisible"></div>
+      <ul class="gallery"></ul>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

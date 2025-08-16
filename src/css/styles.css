@@ -126,3 +126,6 @@
   background-color: #ff4d79;
   transform: scale(1.05);
 }
+.loadmore-js {
+    display: none
+}

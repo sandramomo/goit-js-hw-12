@@ -81,14 +81,15 @@ async function handleLoadMoreClick(e) {
     hideLoader();
     loadMoreGallery(result.hits);
     checkPages();
+    const element = refs.gallery.firstElementChild;
+    const elemInfo = element.getBoundingClientRect();
     window.scrollBy({
-      top: 500,
+      top: elemInfo.height* 2,
       behavior: 'smooth',
     });
   } catch {
     iziToast.error({ message: 'ERROR' });
     hideLoader();
-    e.target.reset();
   }
 }
 

@@ -92,8 +92,6 @@ async function handleLoadMoreClick(e) {
 
 function checkPages() {
   if (maxPages > page) {
-    console.log(`checked pages, page - ${page}`);
-    console.log(`checked pages, max pages - ${maxPages}`);
     showLoadMoreBtn();
   } else if (page === maxPages) {
     hideLoadMoreBtn();

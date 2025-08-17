@@ -76,13 +76,15 @@ async function handleLoadMoreClick(e) {
   e.preventDefault();
   page += 1;
   showLoader();
-  checkPages();
-  const result = await getImagesByQuery(userValue, page);
   try {
+    const result = await getImagesByQuery(userValue, page);
     hideLoader();
     loadMoreGallery(result.hits);
-    const firstNewImage = refs.gallery.lastElementChild.previousElementSibling;
-    firstNewImage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    checkPages();
+    window.scrollBy({
+      top: 500,
+      behavior: 'smooth',
+    });
   } catch {
     iziToast.error({ message: 'ERROR' });
     hideLoader();

@@ -66,34 +66,36 @@ async function handleFormSubmit(e) {
       checkPages();
     }
   } catch {
-    err => {
-      hideLoader();
-      console.log(err);
-      e.target.reset();
-    };
+    maxPages = 0;
+    iziToast.error({ message: 'ERROR' });
+    hideLoader();
+    e.target.reset();
   }
 }
 async function handleLoadMoreClick(e) {
   e.preventDefault();
+  page += 1;
+  showLoader();
+  checkPages();
   const result = await getImagesByQuery(userValue, page);
   try {
-    checkPages();
-    loadMoreGallery(result.hits);
     hideLoader();
+    loadMoreGallery(result.hits);
+    const firstNewImage = refs.gallery.lastElementChild.previousElementSibling;
+    firstNewImage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch {
-    err => {
-      hideLoader();
-      console.log(err);
-      e.target.reset();
-    };
+    iziToast.error({ message: 'ERROR' });
+    hideLoader();
+    e.target.reset();
   }
 }
 
 function checkPages() {
   if (maxPages > page) {
-    page += 1;
+    console.log(`checked pages, page - ${page}`);
+    console.log(`checked pages, max pages - ${maxPages}`);
     showLoadMoreBtn();
-  } else {
+  } else if (page === maxPages) {
     hideLoadMoreBtn();
     iziToast.show({
       message: 'We are sorry, but you have reached the end of search results.',
@@ -102,5 +104,6 @@ function checkPages() {
       messageColor: '#ff80a0',
       progressBarColor: '#ffb3c6',
     });
+    return;
   }
 }
